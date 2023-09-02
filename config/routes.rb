@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post "/signup", to: "customers#create"
   get "/me", to:"customers#show"
   post "/login", to:"sessions#create"
-delete "logout", to:"sessions#destroy"
+  delete "logout", to:"sessions#destroy"
   # route to test your configuration
   # get '/hello', to: 'application#hello_world'
 end

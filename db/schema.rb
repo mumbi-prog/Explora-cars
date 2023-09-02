@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_191524) do
     t.string "full_name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.integer "mobile_number", null: false
+    t.bigint "mobile_number", null: false
     t.integer "age", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

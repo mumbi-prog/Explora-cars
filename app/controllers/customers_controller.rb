@@ -10,14 +10,14 @@ wrap_parameters format:[]
     if user
       render json: user
     else
-      render json: { error: 'Not authorized' }, status: :unauthorized
+      render json: { errors: ['Not authorized'] }, status: :unauthorized
     end
   end
 
   def create
     user = Customer.create!(user_params)
-    byebug
-    render json: { message: 'User created successfully' }, status: :created
+    session[:user_id]=user.id
+    render json: user, status: :created
   end
 
   private
