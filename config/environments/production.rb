@@ -4,7 +4,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   #uncomment this after hosting
-  config.hosts << "https://explora-cars-production.up.railway.app"
+ 
+  config.hosts << "explora-cars-production.up.railway.app"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
