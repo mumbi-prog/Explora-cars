@@ -83,5 +83,5 @@ production:
   <<: *default
   url: <%= ENV["MY_APP_DATABASE_URL"] %>
   database: explora_cars_production
-  username: explora_cars
+  username: postgres
   password: <%= ENV["EXPLORA_CARS_DATABASE_PASSWORD"] %>
