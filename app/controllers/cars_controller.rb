@@ -2,7 +2,20 @@ class CarsController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 rescue_from ActiveRecord::RecordNotFound, with: :render_car_not_found
 
+    def index
+        render json: Car.all, status: :ok
+    end
+
+  
+
+    def show
+        car = find_car
+        render json: car, status: :ok
+    end
+
     private
+
+
 
     def find_car
         car = Car.find(params[:id])
