@@ -19,7 +19,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_car_not_found
     def update
         car = find_car
         car.update!(car_params)
-        car.save!
         render json: car, status: :ok
     end
 
