@@ -16,5 +16,6 @@ class Car < ApplicationRecord
   end
 
   has_one :booking
+  belongs_to :location
 
 end
