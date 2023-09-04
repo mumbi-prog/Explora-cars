@@ -1,16 +1,20 @@
 class SessionsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     def create
-        @user = Customer.find_by(email: params[:email])
+      @user = Customer.find_by(email: params[:email])
     
-        if @user&.authenticate(params[:password])
+      if @user
+        if @user.authenticate(params[:password])
           session[:user_id] = @user.id
           session[:full_name] = @user.full_name
           render json: { message: "Logged in as #{session[:full_name]}" }, status: :found
-        else  
-          render json: { errors: ["Wrong password, please try again."] }, status: :unauthorized
+        else
+          render json: { errors: ["Invalid password, please try again."] }, status: :unauthorized
         end
+      else
+        render_not_found
       end
+    end
 
   def destroy
     if session[:user_id]
