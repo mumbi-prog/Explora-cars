@@ -11,4 +11,8 @@ class Car < ApplicationRecord
   validates :no_of_seats, presence: true, numericality: { only_integer: true, greater_than: 1 }
   validates :fuel_type, presence: true, inclusion: { in: ['gasoline', 'diesel', 'electric', 'other'] }
 
+  def available?
+    !is_rented
+  end
+
 end
