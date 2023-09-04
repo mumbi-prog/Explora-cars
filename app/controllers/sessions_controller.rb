@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         if @user.authenticate(params[:password])
           session[:user_id] = @user.id
           session[:full_name] = @user.full_name
-          render json: { message: "Logged in as #{session[:full_name]}" }, status: :found
+          render json: @user, status: :found
         else
           render json: { errors: ["Invalid password, please try again."] }, status: :unauthorized
         end
