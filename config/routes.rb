@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cars, only: [:index, :create, :show, :update, :destroy]
   resources :customers, only:[:index, :update, :destroy]
   post "/signup", to: "customers#create"
   get "/me", to:"customers#show"
