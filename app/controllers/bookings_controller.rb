@@ -29,6 +29,14 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
         booking.destroy!
         head :no_content
     end
+    def car_dates
+        car = Car.find(params[:id])
+        render json: car
+    end
+    def customer_bookings
+        customer = Customer.find(params[:id])
+        render json: customer.bookings
+    end
     private
     def find_booking(id)
         booking = Booking.find(id)
