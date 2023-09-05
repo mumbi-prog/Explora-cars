@@ -2,10 +2,13 @@ class BookingsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
     def index
-        customer = 
+        # customer = Customer.find(session[:user_id])
+        # bookings = customer.bookings
         render json: Booking.all,status: :ok
     end
     def show
+        # customer = Customer.find(session[:user_id])
+        # booking = customer.bookings.find(params[:id])
         booking = find_booking(params[:id])
         render json: booking
     end
@@ -37,9 +40,9 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
         customer = Customer.find(session[:user_id])
     end
     def render_not_found
-        render json: {error:"Booking not found"},status: :not_found
+        render json: {error:["Booking not found"]},status: :not_found
     end
     def render_record_invalid(invalid)
-        render json: {errors:invalid.record.errors.full_messages},status: :unprocessable_entity
+        render json: {errors:[invalid.record.errors.full_messages]},status: :unprocessable_entity
     end
 end

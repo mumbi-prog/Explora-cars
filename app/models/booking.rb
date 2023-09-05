@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
     validates_presence_of :start_date,:end_date,:customer_id,:car_id
     validate :date_cannot_be_past
     validates :start_date, format: { with: /\A\d{4}-\d{2}-\d{2}\z/ }
+    validate :end_date_not_earlier_than_start_date
     # validate :check_car_availability
     def self.calculate_price(start_date,end_date,car_id)
         car = Car.find(car_id)
@@ -34,6 +35,11 @@ class Booking < ApplicationRecord
     def date_cannot_be_past
         if start_date.present? && start_date < Date.current
             errors.add(:start_date,"The start date cannot be in the past")
+        end
+    end
+    def end_date_not_earlier_than_start_date
+        if start_date.present? && end_date.present? && end_date < start_date
+            errors.add(:end_date,"Cannot be earlier than start date")
         end
     end
     def self.check_car_availability(id)
