@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/me", to:"customers#show"
   post "/login", to:"sessions#create"
   delete "logout", to:"sessions#destroy"
+  resources :bookings
   # route to test your configuration
   # get '/hello', to: 'application#hello_world'
 end
