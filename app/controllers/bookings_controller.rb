@@ -24,7 +24,7 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
         render json: car.bookings
     end
     def customer_bookings
-        customer = Customer.find(params[:id])
+        customer = find_customer
         render json: customer.bookings
     end
     private
