@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_175826) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_020116) do
   create_table "cars", force: :cascade do |t|
     t.string "make"
     t.integer "year"
@@ -36,6 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_175826) do
     t.string "password_digest", null: false
     t.bigint "mobile_number", null: false
     t.integer "age", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
