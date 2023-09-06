@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  has_many :bookings
   has_secure_password
   validates_presence_of :password, :email, :age, :mobile_number, :full_name
   validates :email, uniqueness: { case_sensitive: false }, format: { with: /\A(.+)@(.+)\z/, message: "Email invalid"  },length: { minimum: 4, maximum: 254 }

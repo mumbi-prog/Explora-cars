@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_020116) do
     t.datetime "updated_at", null: false
   end
 
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_191524) do
   create_table "customers", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "email", null: false
