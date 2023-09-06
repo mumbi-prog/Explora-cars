@@ -1,17 +1,7 @@
 class BookingsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
-    def index
-        # customer = Customer.find(session[:user_id])
-        # bookings = customer.bookings
-        render json: Booking.all,status: :ok
-    end
-    def show
-        # customer = Customer.find(session[:user_id])
-        # booking = customer.bookings.find(params[:id])
-        booking = find_booking(params[:id])
-        render json: booking
-    end
+    
     def create
         total_price = Booking.calculate_price(params[:start_date],params[:end_date],params[:car_id])
         booking = Booking.create!(start_date:params[:start_date],end_date:params[:end_date],car_id:params[:car_id],total_price:total_price,customer_id:params[:customer_id])
