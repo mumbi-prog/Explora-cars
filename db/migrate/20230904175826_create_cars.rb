@@ -13,6 +13,8 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.string :fuel_type
       t.boolean :is_rented
 
+      t.integer "location_id"
+
       t.timestamps
     end
   end
