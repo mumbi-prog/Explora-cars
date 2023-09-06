@@ -5,7 +5,8 @@ class Booking < ApplicationRecord
     validate :date_cannot_be_past
     validates :start_date, format: { with: /\A\d{4}-\d{2}-\d{2}\z/ }
     validate :end_date_not_earlier_than_start_date
-    # validate :check_car_availability
+    validate :date_within_existing_ranges
+    validate :check_car_availability
     def self.calculate_price(start_date,end_date,car_id)
         car = Car.find(car_id)
         date1 = Date.parse(start_date)
@@ -34,7 +35,7 @@ class Booking < ApplicationRecord
     private
     def date_cannot_be_past
         if start_date.present? && start_date < Date.current
-            errors.add(:start_date,"The start date cannot be in the past")
+            errors.add(:start_date,"cannot be in the past")
         end
     end
     def end_date_not_earlier_than_start_date
@@ -42,10 +43,23 @@ class Booking < ApplicationRecord
             errors.add(:end_date,"Cannot be earlier than start date")
         end
     end
-    def self.check_car_availability(id)
-        car = Car.find(id)
+    def check_car_availability
+        car = Car.find(self.car_id)
         if car.is_rented
             errors.add(:car_id,"Car is already rented")
+        end
+    end
+    def date_within_existing_ranges
+        # Fetch existing date ranges from the database
+        car = Car.find(self.car_id)
+        # existing_ranges = Booking.where.not(id: self.id) # Exclude the current booking
+    
+        # Check if the new date range overlaps with any existing range
+        car.bookings.each do |existing_booking|
+          if (self.start_date..self.end_date).overlaps?(existing_booking.start_date..existing_booking.end_date)
+            errors.add(:start_date, "Date range overlaps with an existing booking")
+            break
+          end
         end
     end
     
