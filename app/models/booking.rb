@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
     belongs_to :customer
     belongs_to :car
+    before_update :date_within_existing_ranges
     validates_presence_of :start_date,:end_date,:customer_id,:car_id
     validate :date_cannot_be_past
     validates :start_date, format: { with: /\A\d{4}-\d{2}-\d{2}\z/ }
@@ -50,11 +51,9 @@ class Booking < ApplicationRecord
         end
     end
     def date_within_existing_ranges
-        # Fetch existing date ranges from the database
+        
         car = Car.find(self.car_id)
-        # existing_ranges = Booking.where.not(id: self.id) # Exclude the current booking
     
-        # Check if the new date range overlaps with any existing range
         car.bookings.each do |existing_booking|
           if (self.start_date..self.end_date).overlaps?(existing_booking.start_date..existing_booking.end_date)
             errors.add(:start_date, "Date range overlaps with an existing booking")
