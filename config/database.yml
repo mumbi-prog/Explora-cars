@@ -23,8 +23,8 @@ default: &default
 
 development: 
   <<: *default
-  username: morynmoh
-  password: monalisa2012/
+  username: postgres
+  password: postgres
   database: explora_cars_development
  
 
