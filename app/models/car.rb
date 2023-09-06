@@ -1,5 +1,5 @@
 class Car < ApplicationRecord
-
+    has_many :bookings
     validates :make, presence: true, length: { maximum: 30 }
     validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1985, less_than_or_equal_to: Date.today.year }
     validates :price_per_day, presence: true, numericality: { greater_than: 0 }
