@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
     belongs_to :customer
     belongs_to :car
+
     before_update :date_within_existing_ranges
     validates_presence_of :start_date,:end_date,:customer_id,:car_id
     validate :date_cannot_be_past
@@ -8,6 +9,7 @@ class Booking < ApplicationRecord
     validate :end_date_not_earlier_than_start_date
     validate :date_within_existing_ranges
     validate :check_car_availability
+    
     def self.calculate_price(start_date,end_date,car_id)
         car = Car.find(car_id)
         date1 = Date.parse(start_date)
