@@ -31,7 +31,7 @@
   #     body: { errors: ["Too many attempts, try again later."] }.to_json
   #   )
   # end
-  Rack::Attack.throttled_response = lambda do |env|
+  Rack::Attack.throttled_responder = lambda do |env|
     status_code = 429
     headers = {
       'Content-Type' => 'application/json',
