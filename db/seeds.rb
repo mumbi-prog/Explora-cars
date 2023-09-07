@@ -72,7 +72,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location1
+    location: Location.first
   },
   {
     make: "Toyota cruiser hyryder",
@@ -86,7 +86,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "hybrid",
     is_rented: false,
-    location: location2
+    location: Location.last
   },
   {
     make: "Mercedes Benz R-Class",
@@ -100,7 +100,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location3
+    location: Location.last
   },
   {
     make: "Mercedes Benz R-Class",
@@ -114,7 +114,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location3
+    location: Location.first
   },
   {
     make: "Nissan Juke",
@@ -128,7 +128,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location3
+    location: Location.first
   },
   {
     make: "Bentley",
@@ -142,7 +142,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "hybrid",
     is_rented: false,
-    location: location3
+    location: Location.last
   },
   {
     make: "Jaguar I-Pace",
@@ -156,7 +156,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "electric",
     is_rented: false,
-    location: location2
+    location: Location.second
   },
   {
     make: "Dodge Caravan",
@@ -170,7 +170,7 @@ cars_data = [
     no_of_seats: 7,
     fuel_type: "diesel",
     is_rented: false,
-    location: location1
+    location: Location.second
   },
   {
     make: "Isuzu MUX",
@@ -184,7 +184,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location2
+    location: Location.last
   },
   {
     make: "Toyota AYGO",
@@ -198,7 +198,7 @@ cars_data = [
     no_of_seats: 2,
     fuel_type: "diesel",
     is_rented: false,
-    location: location2
+    location: Location.last
   },
   {
     make: "Porsche CTR",
@@ -212,7 +212,7 @@ cars_data = [
     no_of_seats: 2,
     fuel_type: "electric",
     is_rented: false,
-    location: location2
+    location: Location.first
   },
   {
     make: "L1 HongQi",
@@ -226,7 +226,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "electric",
     is_rented: false,
-    location: location3
+    location: Location.last
   },
   {
     make: "Nissan",
@@ -240,7 +240,7 @@ cars_data = [
     no_of_seats: 2,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location1
+    location: Location.second
   },
   {
     make: "Mercedes Benz",
@@ -254,7 +254,7 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "hybrid",
     is_rented: false,
-    location: location2
+    location: Location.last
   },
   {
     make: "Audi S SportBack",
@@ -268,7 +268,7 @@ cars_data = [
     no_of_seats: 2,
     fuel_type: "hybrid",
     is_rented: false,
-    location: location1
+    location: Location.first
   },
   {
     make: "Mercedes SLK",
@@ -282,7 +282,7 @@ cars_data = [
     no_of_seats: 2,
     fuel_type: "electric",
     is_rented: false,
-    location: location2
+    location: Location.second
   },
   {
     make: "Mazda CX-5",
@@ -296,10 +296,9 @@ cars_data = [
     no_of_seats: 5,
     fuel_type: "gasoline",
     is_rented: false,
-    location: location2
+    location: Location.last
   }
 ]
-
 
 cars_data.each do |car_params|
   Car.create(car_params)
