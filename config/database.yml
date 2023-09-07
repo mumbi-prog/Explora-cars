@@ -23,8 +23,8 @@ default: &default
 
 development: 
   <<: *default
-  username: mumbi
-  password: 1234
+  username: postgres
+  password: postgres
   database: explora_cars_development
  
 
