@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # route to test your configuration
-  # get '/hello', to: 'application#hello_world'
   resources :locations, only: [:index, :show]
   resources :cars, only: [:index, :create, :show, :update, :destroy]
   resources :customers, only:[:index, :update, :destroy]
@@ -13,5 +11,4 @@ Rails.application.routes.draw do
   get "/customer_bookings/:id",to:"bookings#customer_bookings"
   # route to test your configuration
   # get '/hello', to: 'application#hello_world'
-  resources :reviews, only: [:index, :create]
 end
