@@ -44,9 +44,7 @@ location3 = Location.create(
 
 # Car.destroy_all
 # Cars, associations -> belongs_to :location
-# Assuming you have Location records named location1, location2, location3 already created.
 
-# Example car data
 cars_data = [
   {
     make: "Maserati Ghibli",
