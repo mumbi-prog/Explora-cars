@@ -1,28 +1,36 @@
-# app/controllers/reviews_controller.rb
 class ReviewsController < ApplicationController
-  before_action :set_car
-
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  rescue_from ActiveRecord::RecordNotFound, with: :render_review_not_found
+  
   def index
-    @reviews = @car.reviews
-    render json: @reviews
+        render json: Review.all, status: :ok
   end
 
   def create
-    @review = @car.reviews.build(review_params)
-    if @review.save
-      render json: @review, status: :created
-    else
-      render json: @review.errors, status: :unprocessable_entity
-    end
+        review = Review.create!(review_params)
+        render json: review, status: :created
+  end
+
+  def show
+        review = find_review
+        render json: review, status: :ok
   end
 
   private
 
-  def set_car
-    @car = Car.find(params[:car_id])
+  def find_review
+        review = Review.find(params[:id])
+  end
+
+  def render_unprocessable_entity(invalid)
+        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+  end
+
+  def render_review_not_found
+        render json: {error: 'Review not found, try again'}, status: :not_found
   end
 
   def review_params
-    params.permit(:title, :body, :rating)
+    params.require(:review).permit(:title, :body, :rating)
   end
 end
