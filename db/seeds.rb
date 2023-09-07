@@ -36,35 +36,35 @@ puts '🌱 Seeding database...'
 
 # customer3 = Customer.create!(full_name: "Isaac Ngahu", age: 20, email: "IsaacNgahu@gmail.com", mobile_number: 254738382924,password: "Izo@Ngahu")
 
-# car1 = Car.create(make: "Toyota",year: 2014, price_per_day: 700,is_rented: true,transmission: "manual",body_type: "sedan",category: "luxury",fuel_consumption: "12L/km",no_of_seats: 5,fuel_type: "gasoline")
+# car1 = Car.create(make: "Toyota",year: 2014, price_per_day: 700,is_rented: true,transmission: "manual",body_type: "sedan",category: "Luxury",fuel_consumption: 12.0,no_of_seats: 5,fuel_type: "gasoline")
 
-# car2 = Car.create(make: "Mitsubishi",year: 2015, price_per_day: 1000, is_rented: false, transmission: "manual",body_type: "SUV",category: "Off-road",fuel_consumption: "8L/km",no_of_seats: 7,fuel_type: "electric")
+# car2 = Car.create!(make: "Mitsubishi",year: 2015, price_per_day: 1000, is_rented: false, transmission: "manual",body_type: "SUV",category: "Sport",fuel_consumption: 8.0,no_of_seats: 7,fuel_type: "electric")
 
-# car3 = Car.create(make: "Mazda",year: 2018,price_per_day: 500, is_rented: false, transmission: "automatic",body_type: "sedan",category: "town-car",fuel_consumption: "20L/km",no_of_seats: 5,fuel_type: "hybrid")
+# car3 = Car.create!(make: "Mazda",year: 2018,price_per_day: 500, is_rented: false, transmission: "automatic",body_type: "sedan",category: "Compact",fuel_consumption: 20.0,no_of_seats: 5,fuel_type: "hybrid")
 
-# booking1 = Booking.create!(
-#   start_date: '2023-09-06',
-#   end_date: '2023-09-10',
-#   total_price: 4000.00,
-#   car_id: car2.id,
-#   customer_id: customer1.id
-# )
+booking1 = Booking.create!(
+  start_date: '2023-09-06',
+  end_date: '2023-09-10',
+  total_price: 4000.00,
+  car_id: 2,
+  customer_id: 1
+)
 
-# booking2 = Booking.create!(
-#   start_date: '2023-09-12',
-#   end_date: '2023-09-20',
-#   total_price: 8000.00,
-#   car_id: car2.id,
-#   customer_id: customer2.id
-# )
+booking2 = Booking.create!(
+  start_date: '2023-09-12',
+  end_date: '2023-09-20',
+  total_price: 8000.00,
+  car_id: 2,
+  customer_id: 2
+)
 
-# booking3 = Booking.create!(
-#   start_date: '2023-09-21',
-#   end_date: '2023-09-30',
-#   total_price: 9000.00,
-#   car_id: car2.id,
-#   customer_id: customer3.id
-# )
+booking3 = Booking.create!(
+  start_date: '2023-09-21',
+  end_date: '2023-09-30',
+  total_price: 9000.00,
+  car_id: 3,
+  customer_id: 3
+)
 
 
 

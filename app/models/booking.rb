@@ -53,14 +53,17 @@ class Booking < ApplicationRecord
         end
     end
     def date_within_existing_ranges
-        
-        car = Car.find(self.car_id)
+        car = Car.find_by(id: self.car_id) # Use find_by to return nil if not found
     
-        car.bookings.each do |existing_booking|
-          if (self.start_date..self.end_date).overlaps?(existing_booking.start_date..existing_booking.end_date)
-            errors.add(:start_date, "Date range overlaps with an existing booking")
-            break
+        if car
+          car.bookings.each do |existing_booking|
+            if (self.start_date..self.end_date).overlaps?(existing_booking.start_date..existing_booking.end_date)
+                errors.add(:start_date, "Date range overlaps with an existing booking")
+              break
+            end
           end
+        else
+          errors.add(:car_id, "Car with ID #{self.car_id} not found") # Handle the case where the car is not found
         end
     end
     

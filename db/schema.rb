@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_151413) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_020116) do
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -36,12 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_151413) do
     t.integer "no_of_seats"
     t.string "fuel_type"
     t.boolean "is_rented"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id"
-    t.bigint "location_id"
-    t.index ["booking_id"], name: "index_cars_on_booking_id"
-    t.index ["location_id"], name: "index_cars_on_location_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -62,6 +56,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_151413) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cars", "bookings"
-  add_foreign_key "cars", "locations"
 end
