@@ -42,27 +42,27 @@ puts '🌱 Seeding database...'
 
 # car3 = Car.create!(make: "Mazda",year: 2018,price_per_day: 500, is_rented: false, transmission: "automatic",body_type: "sedan",category: "Compact",fuel_consumption: 20.0,no_of_seats: 5,fuel_type: "hybrid")
 
-booking1 = Booking.create!(
-  start_date: '2023-09-06',
-  end_date: '2023-09-10',
-  total_price: 4000.00,
-  car_id: 2,
-  customer_id: 1
-)
+# booking1 = Booking.create!(
+#   start_date: '2023-09-07',
+#   end_date: '2023-09-10',
+#   total_price: 4000.00,
+#   car_id: 1,
+#   customer_id: 1
+# )
 
-booking2 = Booking.create!(
-  start_date: '2023-09-12',
-  end_date: '2023-09-20',
-  total_price: 8000.00,
-  car_id: 2,
-  customer_id: 2
-)
+# booking2 = Booking.create!(
+#   start_date: '2023-09-12',
+#   end_date: '2023-09-20',
+#   total_price: 8000.00,
+#   car_id: 2,
+#   customer_id: 2
+# )
 
 booking3 = Booking.create!(
   start_date: '2023-09-21',
   end_date: '2023-09-30',
   total_price: 9000.00,
-  car_id: 3,
+  car_id: 2,
   customer_id: 3
 )
 

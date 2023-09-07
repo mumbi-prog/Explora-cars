@@ -14,7 +14,7 @@ class Car < ApplicationRecord
       !is_rented
     end
   
-    has_one :booking
+    has_many :bookings
     # belongs_to :location
   
   end
