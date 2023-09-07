@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_175826) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_201125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "car_id"
+    t.integer "customer_id"
+    t.float "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cars", force: :cascade do |t|
     t.string "make"
@@ -28,6 +38,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_175826) do
     t.boolean "is_rented"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "booking_id"
+    t.bigint "location_id"
+    t.index ["booking_id"], name: "index_cars_on_booking_id"
+    t.index ["location_id"], name: "index_cars_on_location_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -40,4 +54,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_175826) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "rating"
+    t.bigint "car_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_reviews_on_car_id"
+  end
+
+  add_foreign_key "cars", "bookings"
+  add_foreign_key "cars", "locations"
+  add_foreign_key "reviews", "cars"
 end
