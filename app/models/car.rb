@@ -2,7 +2,7 @@ class Car < ApplicationRecord
     validates :make, presence: true, length: { maximum: 30 }
     validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1985, less_than_or_equal_to: Date.today.year }
     validates :price_per_day, presence: true, numericality: { greater_than: 0 }
-    # validates :image_url, presence: true, format: { with: /\Ahttps?:\/\/.+\.(png|jpg|jpeg)\z/i }
+    validates :image_url, presence: true, format: { with: /\Ahttps?:\/\/.+\.(png|jpg|jpeg)\z/i }
     validates :transmission, presence: true, inclusion: { in: ['automatic', 'manual', 'semi-automatic'] }
     validates :body_type, presence: true, inclusion: { in: ['Sedan', 'Hatchback', 'SUV', 'Convertible', 'Coupe', 'Minivan', 'Pickup truck', 'CrossOver'] }
     validates :category, presence: true, inclusion: { in: ['Luxury', 'Sport', 'Compact', 'Economy', 'Electric', 'Hybrid', 'Off-road', 'Vans and minivans'] }
@@ -15,7 +15,7 @@ class Car < ApplicationRecord
     end
   
     has_many :bookings
-    # belongs_to :location
+    belongs_to :location
   
   end
   

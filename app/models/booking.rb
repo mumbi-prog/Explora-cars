@@ -1,13 +1,11 @@
 class Booking < ApplicationRecord
     belongs_to :customer
     belongs_to :car
-
-    before_update :date_within_existing_ranges
     validates_presence_of :start_date,:end_date,:customer_id,:car_id
     validate :date_cannot_be_past
     validates :start_date, format: { with: /\A\d{4}-\d{2}-\d{2}\z/ }
     validate :end_date_not_earlier_than_start_date
-    validate :date_within_existing_ranges
+    
     validate :check_car_availability
     
     def self.calculate_price(start_date,end_date,car_id)
@@ -52,19 +50,6 @@ class Booking < ApplicationRecord
             errors.add(:car_id,"Car is already rented")
         end
     end
-    def date_within_existing_ranges
-        car = Car.find_by(id: self.car_id) # Use find_by to return nil if not found
     
-        if car
-          car.bookings.each do |existing_booking|
-            if (self.start_date..self.end_date).overlaps?(existing_booking.start_date..existing_booking.end_date)
-                errors.add(:start_date, "Date range overlaps with an existing booking")
-              break
-            end
-          end
-        else
-          errors.add(:car_id, "Car with ID #{self.car_id} not found") # Handle the case where the car is not found
-        end
-    end
     
 end
