@@ -1,10 +1,8 @@
+require "faker"
 # Comment out this line if you will run db:seed in production
 pp 'Deleting old data...'
 Customer.destroy_all
 Car.destroy_all
-Location.destroy_all
-Booking.destroy_all
-Review.destroy_all
 # Customer.destroy_all
 puts '🌱 Seeding database...'
 5.times do 
