@@ -8,4 +8,10 @@ class LocationsController < ApplicationController
         @location = Location.find(params[:id])
         render json: @location
     end
+
+    def destroy
+        @location = Location.find_by(id: params[:id])
+        @location.destroy
+        head :no_content
+    end
 end
