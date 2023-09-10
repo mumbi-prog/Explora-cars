@@ -42,9 +42,8 @@ location3 = Location.create(name: "Kayole", address: "42 Serene Lane, Kayole Est
 
 
 # Cars, associations -> belongs_to :location
-
-car1 = Car.create(make: "Maserati Ghibli", year: 2023, price_per_day: 5000, image_url: "https://i.pinimg.com/564x/40/0f/38/400f385e0d7a4b6ce31a2d608066f7e4.jpg", 
-      transmission: "automatic", body_type: "Sedan", category: "Luxury", fuel_consumption: "20.5", no_of_seats: 5, fuel_type: "gasoline", is_rented: false, location: location1)
+car1 = Car.create(make: 'Toyota Sedan', year: 2023, price_per_day: 3000, image_url: 'https://images.91wheels.com//assets/b_images/main/models/profile/profile1660727109.png',
+      transmission: 'automatic', body_type: 'Sedan', category: 'Luxury', fuel_consumption: '19.1', no_of_seats: 5, fuel_type: 'gasoline', is_rented: false, location: location1)
 
 car2 = Car.create(make: "Toyota cruiser hyryder", year: 2018, price_per_day: 3500, image_url: "https://i.pinimg.com/564x/b4/10/c9/b410c9f1f332d67275e860533d715d36.jpg",
       transmission: "manual", body_type: "SUV", category: "Off-road", fuel_consumption: "20.0", no_of_seats: 5, fuel_type: "hybrid", is_rented: false, location: location2)
