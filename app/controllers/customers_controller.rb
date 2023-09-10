@@ -23,6 +23,7 @@ wrap_parameters format:[]
     @user = Customer.find_by(email: params[:email])
     if @user && @user.age == params[:age]
     @user.update!(user_params)
+    render json:@user, status: :accepted
     end
   end
 
