@@ -15,7 +15,7 @@ class Car < ApplicationRecord
       !is_rented
     end
   
-    has_one :booking, dependent: :destroy
+    has_one :booking
     belongs_to :location
     has_many :reviews
   
