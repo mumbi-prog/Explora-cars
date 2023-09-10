@@ -2,6 +2,7 @@
 pp 'Deleting old data...'
 Customer.destroy_all
 Car.destroy_all
+Location.destroy_all
 # Customer.destroy_all
 puts '🌱 Seeding database...'
 5.times do 
@@ -132,3 +133,4 @@ Review.create(title: 'Good value for money', body: 'The Toyota is a reliable and
 Review.create(title: 'Awesome performance', body: 'This cruiser is a beast on the road!', rating: 5, car_id: car2.id)
 
 puts "✅ Done seeding!"
+
