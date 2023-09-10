@@ -31,7 +31,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_car_not_found
     private
 
     def car_params
-        params.permit(:make, :year, :price_per_day, :image_url, :transmission, :body_type, :category, :fuel_consumption, :no_of_seats, :fuel_type, :is_rented)
+        params.permit(:make, :year, :price_per_day, :image_url, :transmission, :body_type, :category, :fuel_consumption, :no_of_seats, :fuel_type, :is_rented, :location_id)
     end
 
     def find_car
