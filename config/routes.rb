@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   get "/customer_bookings/:id",to:"bookings#customer_bookings"
   # route to test your configuration
   # get '/hello', to: 'application#hello_world'
-  resources :reviews, only: [:index, :create]
 end
