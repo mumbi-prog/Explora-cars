@@ -5,7 +5,7 @@ Rails.application.configure do
 
   #uncomment this after hosting
  
-  config.hosts << "explora-cars-production.up.railway.app"
+  config.hosts << "explora-cars-production.up.railway.app, explora-api.up.railway.app"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
