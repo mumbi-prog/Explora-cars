@@ -19,7 +19,7 @@ This project was developed by the following developers courtesy of Moringa Schoo
 Project TM: Rhona Joy and Erick Mong'are Thank you and do enjoy.
 
 ## Deployed Site
-Explore our deloyed resources🚀 
+Explore our deployed resources🚀 
 - Frontend site: [explora-cars.vercel.app](https://explora-cars.vercel.app/)
 - API : [explora-api.up.railway.app](https://explora-api.up.railway.app)
 
@@ -32,7 +32,7 @@ git clone git@github.com:mumbi-prog/ExploraCars-Client.git
 ```
 1. Navigate to the project directory: `cd explora-client`
 2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
+3. Start the development server: `npm run dev` or `yarn dev` or `pnpm dev`
 
 > This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
    
@@ -41,23 +41,9 @@ git clone git@github.com:mumbi-prog/ExploraCars-Client.git
 git@github.com:mumbi-prog/Explora-cars.git
 ```
 1. Navigate to the project directory: `cd explora-cars`
-2. Install dependencies: `bundle`
+2. Install dependencies: `bundle install`
 3. Set up and seed the database: `rails db:migrate db:seed`
 4. Start the server: `rails s`
-
-## Start the development server
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## BackEnd Installation
 
@@ -162,8 +148,8 @@ Access the Transaction Tracker application on Railway via the following link: [L
 
 ## Copyright and License
 
-Explora is licensed under the Moringa License. 
-You are free to use, modify, and distribute the code as long as you include the appropriate copyright notice and adhere to the terms of the Moringa License.
+Explora is licensed under the MIT License. 
+You are free to use, modify, and distribute the code as long as you include the appropriate copyright notice and adhere to the terms of the MIT License.
 
 > Note: Data used in the application is for demonstration purposes *only* and should not be used for any real car hire transactions.
 
