@@ -19,9 +19,9 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
     end
     def update
         booking = find_booking(params[:id])
-        total_price = Booking.calculate_total_price(params)
-        booking.total_price=total_price
-        booking.update!(booking_params)
+        total_price = booking.calculate_total_price(params[:id],params[:start_date],params[:end_date])
+        updated_params = booking_params.merge(total_price:total_price)
+        booking.update!(updated_params)
         render json: booking,status: :ok
     end
     def destroy
@@ -42,7 +42,7 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
         booking = Booking.find(id)
     end
     def booking_params
-        params.permit(:start_date,:end_date,:customer_id,:car_id)
+        params.permit(:start_date,:end_date,:customer_id,:car_id, :id, :total_price)
     end
     def find_customer
         customer = Customer.find(session[:user_id])

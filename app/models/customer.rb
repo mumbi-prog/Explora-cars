@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :cars, through: :bookings
   has_secure_password
   validates_presence_of :password, :email, :age, :mobile_number, :full_name

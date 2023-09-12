@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.text :body
       t.integer :rating
       t.references :car, null: false, foreign_key: true
-
+      t.references :customer, null: false, foreign_key: true
       t.timestamps
     end
   end
