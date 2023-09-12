@@ -1,10 +1,4 @@
 # Comment out this line if you will run db:seed in production
-require 'faker'
-pp 'Deleting old data...'
-Customer.destroy_all
-Car.destroy_all
-Location.destroy_all
-# Customer.destroy_all
 puts '🌱 Seeding database...'
 
 # Customers, associations -> has_many :bookings, has_many :cars, through: :bookings
