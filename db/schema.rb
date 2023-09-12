@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_08_125943) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_045841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.integer "customer_id"
+    t.bigint "car_id", null: false
+    t.bigint "customer_id", null: false
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "car_id", null: false
     t.index ["car_id"], name: "index_bookings_on_car_id"
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -37,11 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_125943) do
     t.integer "no_of_seats"
     t.string "fuel_type"
     t.boolean "is_rented"
+    t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id"
-    t.bigint "location_id"
-    t.index ["booking_id"], name: "index_cars_on_booking_id"
     t.index ["location_id"], name: "index_cars_on_location_id"
   end
 
@@ -56,9 +55,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_125943) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "phone_number"
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,13 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_125943) do
     t.text "body"
     t.integer "rating"
     t.bigint "car_id", null: false
+    t.bigint "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_reviews_on_car_id"
+    t.index ["customer_id"], name: "index_reviews_on_customer_id"
   end
 
   add_foreign_key "bookings", "cars"
-  add_foreign_key "cars", "bookings"
+  add_foreign_key "bookings", "customers"
   add_foreign_key "cars", "locations"
   add_foreign_key "reviews", "cars"
+  add_foreign_key "reviews", "customers"
 end

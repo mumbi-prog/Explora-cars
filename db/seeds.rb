@@ -6,17 +6,6 @@ Car.destroy_all
 Location.destroy_all
 # Customer.destroy_all
 puts '🌱 Seeding database...'
-5.times do 
-  full_name = Faker::Name.unique.name
-  phone_number = "2547" + rand(10_000_000_000..25_479_999_999).to_s
-  customer = Customer.create(
-    full_name: full_name,
-    age: rand(18..65),
-    email: Faker::Internet.email(name: full_name),
-    mobile_number: phone_number.to_i,
-    password:"#{full_name}2030",
-  )
-end
 
 # Customers, associations -> has_many :bookings, has_many :cars, through: :bookings
 customer1 = Customer.create(
@@ -44,11 +33,11 @@ customer3 = Customer.create(
 )
 
 # Location, association -> has_many :cars
-location1 = Location.create(name: "Mombasa", address: "1524 Malia Road", phone_number: "+254719871243")
+location1 = Location.create(name: "mombasa", address: "1524 Malia Road", phone_number: "+254719871243")
 
-location2 = Location.create(name: "Eldoret", address: "Eld-Avenue", phone_number: "+254791502643")
+location2 = Location.create(name: "eldoret", address: "Eld-Avenue", phone_number: "+254791502643")
 
-location3 = Location.create(name: "Nairobi", address: "42 Serene Lane, Kayole Estate", phone_number: "+254710392333")
+location3 = Location.create(name: "nairobi", address: "42 Serene Lane, Kayole Estate", phone_number: "+254710392333")
 
 
 # Cars, associations -> belongs_to :location

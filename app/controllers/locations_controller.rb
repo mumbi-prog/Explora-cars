@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
     end
 
     def show
-        @location = Location.find(params[:id])
+        @location = Location.find_by(name: params[:id])
         render json: @location.cars, status: :ok
     end
 

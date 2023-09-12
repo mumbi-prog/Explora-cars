@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :cars, only: [:index, :create, :show, :update, :destroy]
   resources :customers, only:[:index, :update, :destroy]
   resources :reviews
+  patch "/reset", to:"customers#update"
   post "/signup", to: "customers#create"
   get "/me", to:"customers#show"
   post "/login", to:"sessions#create"
