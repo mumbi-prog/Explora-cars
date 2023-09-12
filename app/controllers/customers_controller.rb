@@ -21,11 +21,11 @@ wrap_parameters format:[]
   end
   def update 
     @user = Customer.find_by(email: params[:email])
-    if @user && @user.age == params[:age]
+    if @user && @user.age == params[:age].to_i
     @user.update!(user_params)
     render json:@user, status: :accepted
     else 
-      render_unprocessable_entity(invalid)
+      render json:{errors: ['unauthorized request']}, status: :unauthorized
     end
   end
 
