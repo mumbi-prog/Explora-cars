@@ -17,13 +17,10 @@ class Booking < ApplicationRecord
         total_price = (date2-date1).to_i*car.price_per_day
         total_price.to_f
     end
-    def calculate_total_price(id,start_date,end_date)
-        booking = Booking.find(id)
-        if start_date && end_date
-            start = Date.parse(start_date)
-            total_price = (booking.end_date-start).to_i*booking.car.price_per_day
-            total_price.to_f
-        end
+    def calculate_total_price(start_date,end_date,booking)
+        start = Date.parse(start_date)
+        date_ending = Date.parse(end_date)
+        total_price = (date_ending-start)*booking.car.price_per_day.to_f
     end
     
     private

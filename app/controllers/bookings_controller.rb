@@ -19,9 +19,8 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
     end
     def update
         booking = find_booking(params[:id])
-        total_price = booking.calculate_total_price(params[:id],params[:start_date],params[:end_date])
-        updated_params = booking_params.merge(total_price:total_price)
-        booking.update!(updated_params)
+        total_price = booking.calculate_total_price(params[:start_date],params[:end_date],booking)
+        booking.update!(start_date:params[:start_date],end_date:params[:end_date],total_price:total_price)
         render json: booking,status: :ok
     end
     def destroy

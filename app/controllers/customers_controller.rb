@@ -24,6 +24,8 @@ wrap_parameters format:[]
     if @user && @user.age == params[:age]
     @user.update!(user_params)
     render json:@user, status: :accepted
+    else 
+      render_unprocessable_entity
     end
   end
 
