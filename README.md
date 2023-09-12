@@ -1,5 +1,5 @@
 ## Explora Cars
-
+![alt text](https://github.com/mumbi-prog/ExploraCars-Client/blob/development/public/explora.jpeg?raw=true)
 ## Project Description
 
 Explora is a web application that allows travellers to hire cars of their choice for ease in transportation in the destination area. 
@@ -18,7 +18,9 @@ This project was developed by the following developers courtesy of Moringa Schoo
 - Maureen Omamo 
 
 Project TM: Rhona Joy and Erick Mong'are Thank you and do enjoy.
-
+## Deployed Site
+View the deployed frontend site here [explora-cars.vercel.app](hhttps://explora-cars.vercel.app/)
+View the deployed API here [explora-api.up.railway.app](https://explora-api.up.railway.app)
 ## Project Setup Instructions
 
 To set up and run the Explora project locally, follow these steps:
