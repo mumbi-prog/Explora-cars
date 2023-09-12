@@ -26,24 +26,24 @@ Explore our deloyed resources🚀
 ## Project Setup Instructions
 
 To set up and run the Explora project locally, follow these steps:
-- FrontEnd repository: Clone the frontend repository using the following command:
+- **FrontEnd repository:** Clone the frontend repository using the following command:
 ```
 git clone git@github.com:mumbi-prog/ExploraCars-Client.git
 ```
-- BackEnd repository:  Clone the backend repository using the following command:
+1. Navigate to the project directory: `cd explora-client`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+
+> This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+   
+- **BackEnd repository:**  Clone the backend repository using the following command:
 ```
 git@github.com:mumbi-prog/Explora-cars.git
 ```
-
-## Change to project directory
-
-`cd ExploraCars-Client`
-`cd Explora-Cars`
-
-## Install the required dependencies
-
-`npm install`
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+1. Navigate to the project directory: `cd explora-cars`
+2. Install dependencies: `bundle`
+3. Set up and seed the database: `rails db:migrate db:seed`
+4. Start the server: `rails s`
 
 ## Start the development server
 
@@ -166,4 +166,4 @@ You are free to use, modify, and distribute the code as long as you include the 
 
 > Note: Data used in the application is for demonstration purposes *only* and should not be used for any real car hire transactions.
 
-GOD Bless You. Happy Coding!!
+GOD Bless You. Happy Coding!!🤗
