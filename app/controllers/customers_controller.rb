@@ -25,7 +25,7 @@ wrap_parameters format:[]
     @user.update!(user_params)
     render json:@user, status: :accepted
     else 
-      render_unprocessable_entity
+      render_unprocessable_entity(invalid)
     end
   end
 
