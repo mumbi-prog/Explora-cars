@@ -2,11 +2,11 @@
 ![alt text](https://github.com/mumbi-prog/ExploraCars-Client/blob/development/public/explora.jpeg?raw=true)
 ## Project Description
 
-Explora is a web application that allows travellers to hire cars of their choice for ease in transportation in the destination area. 
-Clients can view existing cars model, year, fuel consumption, fuel type, transmission, number of seats and if available. 
-Clients are allowed to create their own accounts to keep track of their booking history. The accounts can be deleted at any time by them. Data privacy is respected.
-Cars are booked according to location and once booked, they cannot be double booked. 
-
+- Explora is a web application that allows travellers to hire cars of their choice for ease in transportation in the destination area. 
+- Clients can view existing cars model, year, fuel consumption, fuel type, transmission, number of seats and if available. 
+- Clients are allowed to create their own accounts to keep track of their booking history. The accounts can be deleted at any time by them. Data privacy is respected.
+- Cars are booked according to location and once booked, they cannot be double booked.
+  
 ## Author
 
 This project was developed by the following developers courtesy of Moringa School.
@@ -19,17 +19,21 @@ This project was developed by the following developers courtesy of Moringa Schoo
 Project TM: Rhona Joy and Erick Mong'are Thank you and do enjoy.
 
 ## Deployed Site
-View the deployed frontend site here [explora-cars.vercel.app](hhttps://explora-cars.vercel.app/)
-View the deployed API here [explora-api.up.railway.app](https://explora-api.up.railway.app)
+Explore our deloyed resources🚀 
+- Frontend site: [explora-cars.vercel.app](https://explora-cars.vercel.app/)
+- API : [explora-api.up.railway.app](https://explora-api.up.railway.app)
 
 ## Project Setup Instructions
 
 To set up and run the Explora project locally, follow these steps:
-FrontEnd repository: Clone the frontend repository using the following command:
-```git clone git@github.com:mumbi-prog/ExploraCars-Client.git```
-BackEnd repository:  Clone the backend repository using the following command:
-```git@github.com:mumbi-prog/Explora-cars.git```
-
+- FrontEnd repository: Clone the frontend repository using the following command:
+```
+git clone git@github.com:mumbi-prog/ExploraCars-Client.git
+```
+- BackEnd repository:  Clone the backend repository using the following command:
+```
+git@github.com:mumbi-prog/Explora-cars.git
+```
 
 ## Change to project directory
 
@@ -67,7 +71,7 @@ Add the following gems and then run `bundle install`
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-```
+```bash
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
@@ -153,8 +157,7 @@ Use tools like ThunderBolt, or Postman, or your frontend application to test you
 ## Live Site Deployment
 
 Deploy your backend to a production server using platforms like Heroku or AWS or Vercel or Netlify.
-Live Site
-You can access the live version of the Transaction Tracker application on GitHub Pages by visiting the following link: [https://explora-cars-production.up.railway.app/customers](https://explora-cars-production.up.railway.app/customers)
+Access the Transaction Tracker application on Railway via the following link: [Live Site](https://explora-cars-production.up.railway.app/customers). This link will take you to the backend of the application.
 
 ## Copyright and License
 
