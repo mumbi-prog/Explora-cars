@@ -31,18 +31,18 @@ rescue_from ActiveRecord::RecordInvalid,with: :render_record_invalid
     end
     def car_dates
         car = Car.find(params[:id])
-        render json: car
+        render json: car, status: :ok
     end
     def customer_bookings
         customer = Customer.find(params[:id])
-        render json: customer.bookings
+        render json: customer.bookings, status: :ok
     end
     private
     def find_booking(id)
         booking = Booking.find(id)
     end
     def booking_params
-        params.permit(:start_date,:end_date,:customer_id,:car_id, :id, :total_price)
+        params.permit(:start_date,:end_date,:customer_id,:car_id, :id, :total_price, :customer_id)
     end
     def find_customer
         customer = Customer.find(session[:user_id])

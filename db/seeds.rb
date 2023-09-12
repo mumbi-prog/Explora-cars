@@ -1,4 +1,5 @@
 # Comment out this line if you will run db:seed in production
+require 'faker'
 pp 'Deleting old data...'
 Customer.destroy_all
 Car.destroy_all
@@ -128,9 +129,9 @@ booking3 = Booking.create(
   total_price: (Date.parse("2023-09-19") - Date.parse("2023-09-13")).to_i * car1.price_per_day
 )
 
-Review.create(title: 'Great car!', body: 'I love this car. Its comfortable and fuel-efficient.', rating: 5, car_id: car1.id)
-Review.create(title: 'Good value for money', body: 'The Toyota is a reliable and affordable choice.', rating: 4, car_id: car2.id)
-Review.create(title: 'Awesome performance', body: 'This cruiser is a beast on the road!', rating: 5, car_id: car2.id)
+Review.create(title: 'Great car!', body: 'I love this car. Its comfortable and fuel-efficient.', rating: 5, car_id: car1.id, customer_id: customer1.id)
+Review.create(title: 'Good value for money', body: 'The Toyota is a reliable and affordable choice.', rating: 4, car_id: car2.id, customer_id: customer2.id)
+Review.create(title: 'Awesome performance', body: 'This cruiser is a beast on the road!', rating: 5, car_id: car2.id, customer_id: customer3.id)
 
 puts "✅ Done seeding!"
 
