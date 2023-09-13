@@ -12,8 +12,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.integer :no_of_seats
       t.string :fuel_type
       t.boolean :is_rented
-      t.integer :location_id
-
+      t.references :location, null: true, foreign_key: true
       t.timestamps
     end
   end

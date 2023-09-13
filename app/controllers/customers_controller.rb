@@ -19,6 +19,13 @@ wrap_parameters format:[]
     session[:user_id]=user.id
     render json: user, status: :created
   end
+  def update 
+    @user = Customer.find_by(email: params[:email])
+    if @user && @user.age == params[:age]
+    @user.update!(user_params)
+    render json:@user, status: :accepted
+    end
+  end
 
   private
 
