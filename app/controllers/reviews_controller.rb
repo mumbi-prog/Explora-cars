@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
 
   def create
         review = Review.create!(review_params)
-        byebug
         render json: review, status: :created
   end
 

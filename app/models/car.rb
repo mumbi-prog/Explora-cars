@@ -1,5 +1,4 @@
 class Car < ApplicationRecord
-
     validates :make, presence: true, length: { maximum: 30 }
     validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1985, less_than_or_equal_to: Date.today.year }
     validates :price_per_day, presence: true, numericality: { greater_than: 0 }
@@ -10,6 +9,7 @@ class Car < ApplicationRecord
     validates :fuel_consumption, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :no_of_seats, presence: true, numericality: { only_integer: true, greater_than: 1 }
     validates :fuel_type, presence: true, inclusion: { in: ['gasoline', 'diesel', 'electric', 'hybrid'] }
+    default_scope { where(is_rented: false) }
   
     def available?
       !is_rented
