@@ -3,11 +3,11 @@ class Customer < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :cars, through: :bookings
   has_secure_password
-  validates_presence_of :password, :email, :age, :mobile_number, :full_name
+  validates_presence_of :email, :age, :mobile_number, :full_name
   validates :email, uniqueness: { case_sensitive: false }, format: { with: /\A(.+)@(.+)\z/, message: "Email invalid"  },length: { minimum: 4, maximum: 254 }
   validates :mobile_number, length: { minimum: 12, maximum: 12 }
   validate :fullname_not_email
-  validates :password, length:{minimum: 8}
+  validates :password, length:{minimum: 8}, presence: true, if: :password_digest_changed?
   validates :age, numericality: { greater_than_or_equal_to: 18, less_than_or_equal_to: 65 }
                   
 
