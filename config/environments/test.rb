@@ -10,7 +10,6 @@ Rails.application.configure do
 
   # Turn false under Spring and add config.action_view.cache_template_loading = true.
 
-  config.hosts << "explora-cars-production.up.railway.app, explora-api.up.railway.app"
   
   config.cache_classes = true
 
